@@ -13,7 +13,7 @@ There are blue and black boards, both marked "V13".
 * Ingenic XBurst2 X2600E SoC
 * 256MB DDR3
 * [3.3V UART on GND/RX2/TX2 header, 3Mbps 8bit, parity none, 1 stop bit, lsb-fist](serial.md)
-* USB-C (shared with USB0) 
+* USB-C (shared contacts with USB0) 
 * WiFi (aic8800dc)
 
 ## Firmware
@@ -40,6 +40,16 @@ MD5(CR4SU200382C13_ota_K1C-2025_V1.0.0.26.20251024S.img)= b4306fe87d75ad94525fb7
 #### MMC layout
 
 ```
+[root@K1C-XXXX ~] # dmesg
+...
+[    1.103086] mmc0: new HS200 MMC card at address 0001
+[    1.104234] mmcblk0: mmc0:0001 C9A391 7.28 GiB 
+[    1.104736] mmcblk0boot0: mmc0:0001 C9A391 partition 1 4.00 MiB
+[    1.105295] mmcblk0boot1: mmc0:0001 C9A391 partition 2 4.00 MiB
+[    1.105977] mmcblk0rpmb: mmc0:0001 C9A391 partition 3 16.0 MiB, chardev (248:0)
+[    1.108530]  mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10
+...
+
 [root@K1C-XXXX ~] # fdisk -l
 Found valid GPT with protective MBR; using GPT
 
@@ -73,6 +83,11 @@ Number  Start (sector)    End (sector)  Size Name
 - `rootfs2` - not encrypted ext4, mounted on `/usr/apps` on boot
 - `rootfs_data` - likely unused (currently `0x00` fileld)
 - `userdata` - not ncrypted ext4, mounted on /usr/data (g-code files, logs ...)
+
+`/dev/mmcblk0boot0` (4MB) and `/dev/mmcblk0boot1` (4MB) likely unused (0x00 filled).
+
+`/dev/mmcblk0rpmb` (16MB) should be write-only [RPMB](https://en.wikipedia.org/wiki/Replay_Protected_Memory_Block) partition likely related to "secure boot".
+
 
 #### MMC dump
 
@@ -126,7 +141,7 @@ Eight binaried are decrypted by `/bin/seed.sh` to `/tmp/apps` (You can download 
 - `onyxp` - :TODO:
 - `quintusp` - LED on/off (if stopped - light switching from GUI has no effect), maybe something more
 - `solusp` - :TODO:
-- `thirteenthp` - ?is it doing anything? (startup script `CS59thirteenthp` likely has errors)
+- `thirteenthp` - ?is it doing anything? (startup script `CS59thirteenthp` likely has errors) video stream related
 - `vectorp` - main and biggest, responsible for GUI, likely C++ uning LVGL (https://lvgl.io/) for graphics, plaintext mqtt reporting to Creality (`mqtt.crealitycloud.com`, ...)
 
 Klipper is available in python bytecode (`.pyc` files), some configs are plaintext.
