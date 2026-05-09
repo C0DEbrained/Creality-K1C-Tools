@@ -8,6 +8,9 @@ Primarily, it targets the 2025 revision, but there's likely going to be some ove
 
 If you've made a tool or have some information that would be helpful for other K1C owners, open a PR. The more tools we have the better we can understand its firmware and make the most out of our devices.
 
+# Other Recommended Projects
+
+[Reccon](https://github.com/ma5ter/reccon) by @ma5ter - Failsafe display-based console if you screw the boot up. 
 
 # Join the Discussion
 
