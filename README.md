@@ -15,3 +15,8 @@ If you've made a tool or have some information that would be helpful for other K
 # Join the Discussion
 
 [<img src="https://discord.com/api/guilds/1467883889157607542/widget.png?style=banner2" alt="Discord Banner 2"/>](https://discord.gg/FffAZcUJtr)
+
+# Support Me!
+
+ [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/coreya97)
+*All donations will help fund my 3d printing habit...* ❤️
