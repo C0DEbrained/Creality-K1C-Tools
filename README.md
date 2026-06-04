@@ -4,6 +4,14 @@ This repo is intended to house a collection of tools related to the Creality K1C
 Primarily, it targets the 2025 revision, but there's likely going to be some overlap with other versions.
 
 
+# Klipper Config Patches
+
+Drop-in `.cfg` snippets for `/usr/data/printer_data/config/printer.cfg`. See [`klipper-config/`](klipper-config/) for apply instructions.
+
+| File | Description |
+|------|-------------|
+| [`led-lighting.cfg`](klipper-config/led-lighting.cfg) | Exposes the chassis LED to Fluidd ("Lights" slider) and fixes the touchscreen LED control |
+
 # Contributing
 
 If you've made a tool or have some information that would be helpful for other K1C owners, open a PR. The more tools we have the better we can understand its firmware and make the most out of our devices.
