@@ -5,7 +5,7 @@ APPETC=/usr/apps/etc
 INITD=$APPETC/init.d
 OPT_FILE_NAME=entware_opt_mount.img
 
-if (command -v opkg > /dev/null); then
+if command -v opkg >/dev/null 2>&1; then
   echo "OPKG is already installed!"
   exit 1
 fi
