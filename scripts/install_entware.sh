@@ -1,16 +1,15 @@
 #!/bin/sh
 
-#if [ ! -f paths.sh ]; then
-#  echo "Paths file not found. Exiting!" && exit 1
-#fi
-#
-#. paths.sh
-
 DATA=/usr/data
 APPETC=/usr/apps/etc
 INITD=$APPETC/init.d
 OPT_FILE_NAME=entware_opt_mount.img
 ENTWARE_PATH=$INITD/S48entware
+
+if command -v opkg >/dev/null 2>&1; then
+  echo "OPKG is already installed!"
+  exit 1
+fi
 
 if [ -f $DATA/$OPT_FILE_NAME ]; then
   echo "Existing $DATA/$OPT_FILE_NAME file found. Skipping creation."
