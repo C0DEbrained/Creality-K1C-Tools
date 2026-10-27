@@ -25,7 +25,7 @@ if [ ! -f $ENTWARE_PATH ]; then
   {
     echo '#!/bin/sh'
     echo '# Creality Helper Script — persistent Entware /opt (must run before S50*).'
-    echo "ENTWARE_IMG=\"$ENTWARE_OPT_MOUNT\""
+    echo "ENTWARE_IMG=\"$DATA/$OPT_FILE_NAME\""
     echo 'mkdir -p /opt'
     echo 'if ! grep -q " /opt " /proc/mounts; then'
     echo '  mount -o loop "$ENTWARE_IMG" /opt || exit 1'
